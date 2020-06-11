@@ -25,7 +25,7 @@ use Auth;
 use DB;
 use File;
 use Validator;
-use Datatables;
+use DataTables;
 use Illuminate\Support\Str;
 use App\Models\Upload;
 

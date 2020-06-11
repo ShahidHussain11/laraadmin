@@ -15,7 +15,7 @@ use App\Http\Requests;
 use Auth;
 use DB;
 use Validator;
-use Datatables;
+use DataTables;
 use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;

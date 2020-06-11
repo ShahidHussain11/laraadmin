@@ -16,7 +16,7 @@ use Auth;
 use Illuminate\Support\Str;
 use DB;
 use Validator;
-use Datatables;
+use DataTables;
 use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
