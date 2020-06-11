@@ -29,7 +29,9 @@
 		<thead>
 		<tr class="success">
 			@foreach( $listing_cols as $col )
-			<th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
+			@if(array_key_exists($col,$module->fields))
+            <th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
+            @endif
 			@endforeach
 			@if($show_actions)
 			<th>Actions</th>

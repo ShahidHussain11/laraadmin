@@ -212,24 +212,24 @@ class DepartmentsController extends Controller
 			for ($j=0; $j < count($listing_cols); $j++) { 
 				$col = $listing_cols[$j];
 				if($fields_popup[$col] != null && Str::startsWith($fields_popup[$col]->popup_vals, "@")) {
-					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
+					$data->data[$i]->$col = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i]->$col);
 				}
 				if($col == $module->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/departments/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i]->$col = '<a href="'.url(config('laraadmin.adminRoute') . '/departments/'.$data->data[$i]->id).'">'.$data->data[$i]->$col.'</a>';
 				}
 				// else if($col == "author") {
-				//    $data->data[$i][$j];
+				//    $data->data[$i]->$col;
 				// }
 			}
 			
 			if($this->show_action) {
 				$output = '';
 				if(Module::hasAccess("Departments", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/departments/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/departments/'.$data->data[$i]->id.'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
 				if(Module::hasAccess("Departments", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.departments.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.departments.destroy', $data->data[$i]->id], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}
