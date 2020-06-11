@@ -488,7 +488,7 @@ class LAHelper
     public static function laravel_ver()
     {
         $var = \App::VERSION();
-        echo 'version-' . $var;
+        // echo 'version-' . $var;
         if(Str::startsWith($var, "5.4") ||
             Str::startsWith($var, "5.5") ||
             Str::startsWith($var, "5.6") ||
@@ -497,7 +497,7 @@ class LAHelper
             Str::startsWith($var, "5.9") ||
             Str::startsWith($var, "6.")
         ) {
-            echo 'version is latest =>' . $var;
+            // echo 'version is latest =>' . $var;
             return 5.4;
         }
         else if(Str::startsWith($var, "5.2")) {
