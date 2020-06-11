@@ -32,7 +32,11 @@
         <tr class="success">
             @foreach( $listing_cols as $col )
             @if(array_key_exists($col,$module->fields))
-            <th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
+            @if(isset($module->fields[$col]['label']))
+                    <th>{{ $module->fields[$col]['label'] }}</th>
+                @else
+                    <th>{{ ucfirst($col) }}</th>
+                @endif
             @endif
             @endforeach
             @if($show_actions)
