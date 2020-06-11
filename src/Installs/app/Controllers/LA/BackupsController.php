@@ -21,6 +21,7 @@ use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 use Dwij\Laraadmin\Helpers\LAHelper;
 use Artisan;
+use Illuminate\Support\Str;
 
 use App\Models\Backup;
 
@@ -148,7 +149,7 @@ class BackupsController extends Controller
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($listing_cols); $j++) { 
 				$col = $listing_cols[$j];
-				if($fields_popup[$col] != null && starts_with($fields_popup[$col]->popup_vals, "@")) {
+				if($fields_popup[$col] != null && Str::startsWith($fields_popup[$col]->popup_vals, "@")) {
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $module->view_col) {

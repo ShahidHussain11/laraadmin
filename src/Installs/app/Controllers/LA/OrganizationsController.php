@@ -21,6 +21,7 @@ use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
 use App\Models\Organization;
+use Illuminate\Support\Str;
 
 class OrganizationsController extends Controller
 {
@@ -222,7 +223,7 @@ class OrganizationsController extends Controller
 						$data->data[$i][$j] = "";
 					}
 				}
-				if($fields_popup[$col] != null && starts_with($fields_popup[$col]->popup_vals, "@")) {
+				if($fields_popup[$col] != null && Str::startsWith($fields_popup[$col]->popup_vals, "@")) {
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $module->view_col) {
