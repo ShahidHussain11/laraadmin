@@ -26,7 +26,7 @@ use DB;
 use File;
 use Validator;
 use Datatables;
-
+use Illuminate\Support\Str;
 use App\Models\Upload;
 
 class UploadsController extends Controller
@@ -184,7 +184,7 @@ class UploadsController extends Controller
 					]);
 					// apply unique random hash to file
 					while(true) {
-						$hash = strtolower(str_random(20));
+						$hash = strtolower(Str::random(20));
 						if(!Upload::where("hash", $hash)->count()) {
 							$upload->hash = $hash;
 							break;

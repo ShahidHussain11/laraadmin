@@ -611,7 +611,7 @@ class LAHelper
     {
         $mfiles = scandir(base_path('database/migrations/'));
         foreach($mfiles as $mfile) {
-            if(str_contains($mfile, $file_name)) {
+            if(Str::contains($mfile, $file_name)) {
                 $mgr_file = base_path('database/migrations/' . $mfile);
                 if(file_exists($mgr_file)) {
                     return 'database/migrations/' . $mfile;

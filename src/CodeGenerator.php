@@ -330,7 +330,7 @@ class CodeGenerator
                 $fileExists = false;
                 $fileExistName = "";
                 foreach($mfiles as $mfile) {
-                    if(str_contains($mfile, $migrationName)) {
+                    if(Str::contains($mfile, $migrationName)) {
                         $fileExists = true;
                         $fileExistName = $mfile;
                     }
